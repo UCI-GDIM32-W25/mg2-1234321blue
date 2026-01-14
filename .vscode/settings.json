@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "mg2-1234321blue.sln"
+    "dotnet.defaultSolution": "mg2-1234321blue(progressed).sln"
 }
