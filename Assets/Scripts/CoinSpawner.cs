@@ -7,25 +7,29 @@ public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _coin;
     [SerializeField] private Transform _spawn;
-    
+    float random;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        random = Random.Range(0f,4f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        MakeCoin();
+        timer+=Time.deltaTime;
+        SpawnCoin();
+        
     }
-    void MakeCoin()
+    void SpawnCoin()
     {
-        int random = Random.Range(0,1200);
-        Debug.Log(random);
-        if(random==1199)
-        { 
-           Instantiate(_coin,_spawn);
+        
+        if(timer>=random)
+        {
+            Instantiate(_coin,_spawn);
+            timer=0;
+            random = Random.Range(0f,4f);
         }
     }
 }
