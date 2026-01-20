@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _playerRB;
     [SerializeField] float _jump;
+    int _points;
     bool _isGrounded=true;
+    [SerializeField] TMP_Text _pointsText;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("testing");
+        
     }
 
     // Update is called once per frame
@@ -29,5 +32,10 @@ public class Player : MonoBehaviour
         {
             _isGrounded=true;
         }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        _points++;
+        _pointsText.text=("Points: "+_points);
     }
 }
